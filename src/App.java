@@ -40,7 +40,7 @@ public class App {
         System.out.flush();
 
         System.out.println("Loading game");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.print(".");
             try {
                 Thread.sleep(500);
@@ -58,15 +58,15 @@ public class App {
 
         
 
-        System.out.println("Enemy name is " + enemy.getName());
-        System.out.println("Enemy weapon is " + enemy.getWeapon());
-        System.out.println("Enemy health is " + enemy.getHealth());
+        enemy.setAttack(attack);
+        enemy.info();
 
         System.out.println("\n\n\n");
 
         player.setAttack(attack);
         player.info();
-        System.out.println();
+        
+
         input.close();
     }
 }

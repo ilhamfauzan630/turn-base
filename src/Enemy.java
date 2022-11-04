@@ -4,6 +4,9 @@ public class Enemy extends Charakter{
     
     public Enemy(String name, String weapon, int health) {
         super(name, weapon, health);
+        this.name = name;
+        this.weapon = weapon;
+        this.health = health;
     }
 
     public void setAttack(int attack) {
