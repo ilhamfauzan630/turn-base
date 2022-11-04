@@ -24,7 +24,9 @@ public class Charakter {
         this.name = name;
     }
 
-    public void attack() {
-        System.out.println("your attack is " + weapon);
+    public void info() {
+        System.out.println("your name is " + name);
+        System.out.println("your weapon is " + weapon);
+        System.out.println("your health is " + health);
     }
 }

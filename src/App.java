@@ -1,10 +1,9 @@
-import java.lang.management.PlatformManagedObject;
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         String name, weapon;
         int health = 100; 
-        int attack = 10;
+        int attack = 40;
 
         Scanner input = new Scanner(System.in);
 
@@ -35,17 +34,21 @@ public class App {
                 break;
         }
 
-        Player player = new Player(name, weapon, 100);
+        Player player = new Player(name, weapon, health);
         Enemy enemy = new Enemy("Enemy", "Gun", 500);
 
+        //crearscreen
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
-
-        System.out.println("Your name is " + player.getName());
-        System.out.println("Your weapon is " + player.getWeapon());
-        System.out.println("Your health is " + player.getHealth());
+        player.setAttack(attack);
+        player.info();
         System.out.println();
+
         System.out.println("Enemy name is " + enemy.getName());
         System.out.println("Enemy weapon is " + enemy.getWeapon());
         System.out.println("Enemy health is " + enemy.getHealth());
+        
+        input.close();
     }
 }
