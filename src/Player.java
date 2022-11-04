@@ -21,9 +21,16 @@ public class Player extends Charakter{
 
     //print info charakter
     public void info() {
-        System.out.println("your name is " + name);
-        System.out.println("your weapon is " + weapon);
-        System.out.println("your health is " + health);
-        System.out.println("your attack is " + attack);
+        System.out.println("\t\t" + name);
+        System.out.print("\t\thealth : ");
+        //create do while to pringt hp []
+        int i = 0;
+        do {
+            System.out.print("[]");
+            i++;
+        } while (i < health / 10);
+
+        System.out.println();
+        System.out.println("\t\tyour attack is " + attack);
     }
 }

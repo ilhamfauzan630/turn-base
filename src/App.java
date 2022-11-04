@@ -9,7 +9,7 @@ public class App {
 
         System.out.print("Enter your name: ");
         name = input.nextLine();
-        System.out.println("coice your weapon: ");
+        System.out.println("choice your weapon: ");
         System.out.println("1. Sword");
         System.out.println("2. Gun");
         System.out.println("3. Knife");
@@ -31,7 +31,22 @@ public class App {
                 break;
             default:
                 weapon = "Sword";
+                attack += 10;
                 break;
+        }
+        
+        //clearscreen
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
+        System.out.println("Loading game");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(".");
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         Player player = new Player(name, weapon, health);
@@ -41,14 +56,17 @@ public class App {
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
-        player.setAttack(attack);
-        player.info();
-        System.out.println();
+        
 
         System.out.println("Enemy name is " + enemy.getName());
         System.out.println("Enemy weapon is " + enemy.getWeapon());
         System.out.println("Enemy health is " + enemy.getHealth());
-        
+
+        System.out.println("\n\n\n");
+
+        player.setAttack(attack);
+        player.info();
+        System.out.println();
         input.close();
     }
 }
