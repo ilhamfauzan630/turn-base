@@ -1,9 +1,11 @@
 public class Enemy extends Charakter{
     private String name, weapon;
-    private int health, attack;
-    private Boolean isEnemy, isAlive;
+    public int health;
+    private int attack;
+    private Boolean isEnemy;
+    public Boolean isAlive;
 
-    //constructor child class
+    //constructor
     public Enemy(String name, String weapon, int health) {
         super(name, weapon, health);
         this.name = name;
@@ -40,7 +42,7 @@ public class Enemy extends Charakter{
 
     
 
-    public void info() {
+    public final void info() {
         //octo
         System.out.println("     Enemy");
         System.out.println("       V");
@@ -54,6 +56,9 @@ public class Enemy extends Charakter{
         
         int i = 0;
         do {
+            if(this.health < 10) {
+                break;
+            }
             System.out.print("[]");
             i++;
         } while (i < this.health / 10);

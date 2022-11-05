@@ -1,7 +1,9 @@
 public class Player extends Charakter{
     private String name, weapon;
-    private int health, attack;
-    private Boolean isEnemy, isAlive;
+    public int health;
+    private int attack;
+    private Boolean isEnemy;
+    public Boolean isAlive;
 
     //constructor
     public Player(String name, String weapon, int health) {
@@ -35,15 +37,16 @@ public class Player extends Charakter{
         return this.isEnemy = isEnemy;
     }
 
+    //attack
     public int attack() {
-        if(isEnemy != true){
-            this.attack = this.attack + 15;
+        if (this.isEnemy != true) {
+            return this.attack;
         }
-        return this.attack;
+        return this.attack = this.attack + 10;
     }
 
     //print info charakter
-    public void info() {
+    public final void info() {
         System.out.println("\t\tPlayer");
         System.out.println("\t\t  V");
         System.out.println("\t\t _");
@@ -59,6 +62,9 @@ public class Player extends Charakter{
         //create do while to pringt hp []
         int i = 0;
         do {
+            if(this.health < 10) {
+                break;
+            }
             System.out.print("[]");
             i++;
         } while (i < this.health / 10);

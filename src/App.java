@@ -1,3 +1,4 @@
+import java.lang.ClassNotFoundException;
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
@@ -63,26 +64,87 @@ public class App {
         }
 
         //instance player and enemy
-        Player player = new Player(name, weapon, health);
-        Enemy enemy = new Enemy("Enemy", "Gun", 500);
+        Player player = new Player(name, weapon, health, isAlive);
+        Enemy enemy = new Enemy("Enemy", "Gun", 250, isAlive);
 
         //crearscreen
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
         
-        //set attack
+        //info player and enemy
         enemy.setAttack(attack);
         enemy.setEnemy(isEnemy);
         enemy.info();
-
         System.out.println("\n\n\n");
-
-        //set attack
         player.setAttack(attack);
         player.setEnemy(isEnemy);
         player.info();
         
+
+        //battle
+        while (player.isAlive == true && enemy.isAlive == true) {
+            System.out.println("1. Attack");
+            System.out.println("2. Run");
+            System.out.print("Enter your choice: ");
+            String choice = input.nextLine();
+            switch (choice) {
+                case "1":
+                    //clearscreen
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+
+
+                    //player attack
+                    enemy.health -= player.attack();
+                    System.out.println("your attack: " + player.attack());
+                    System.out.println("enemy health: " + enemy.health);
+
+
+                    //enemy attack
+                    player.health -= enemy.attack();
+                    System.out.println("enemy attack: " + enemy.attack());
+                    System.out.println("your health: " + player.health);
+                    try {
+                        Thread.sleep(900);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    //info player and enemy
+                    enemy.setAttack(attack);
+                    enemy.setEnemy(isEnemy);
+                    enemy.info();
+                    System.out.println("\n\n\n");
+                    player.setAttack(attack);
+                    player.setEnemy(isEnemy);
+                    player.info();
+                    break;
+                case "2":
+                    //clearscreen
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("you run away");
+                    System.exit(0);
+                    break;
+                default:
+                    //clearscreen
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("you run away");
+                    System.exit(0);
+                    break;
+            }
+            if (player.health <= 0) {
+                player.isAlive = false;
+                System.out.println("you lose");
+                System.exit(0);
+            } else if (enemy.health <= 0) {
+                enemy.isAlive = false;
+                System.out.println("you win");
+                System.exit(0);
+            }
+        }
 
         input.close();
     }
