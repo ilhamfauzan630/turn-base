@@ -1,7 +1,7 @@
 public class Enemy extends Charakter{
     private String name, weapon;
     private int health, attack;
-    private Boolean isEnemy;
+    private Boolean isEnemy, isAlive;
 
     //constructor child class
     public Enemy(String name, String weapon, int health) {
@@ -9,6 +9,14 @@ public class Enemy extends Charakter{
         this.name = name;
         this.weapon = weapon;
         this.health = health;
+    }
+
+    public Enemy(String name, String weapon, int health, Boolean isAlive) {
+        super(name, weapon, health);
+        this.name = name;
+        this.weapon = weapon;
+        this.health = health;
+        this.isAlive = isAlive;
     }
 
     public void setAttack(int attack) {

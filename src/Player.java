@@ -1,7 +1,7 @@
 public class Player extends Charakter{
     private String name, weapon;
     private int health, attack;
-    private Boolean isEnemy;
+    private Boolean isEnemy, isAlive;
 
     //constructor
     public Player(String name, String weapon, int health) {
@@ -9,6 +9,15 @@ public class Player extends Charakter{
         this.name = name;
         this.weapon = weapon;
         this.health = health;
+    }
+
+    //overloading constructor
+    public Player(String name, String weapon, int health, Boolean isAlive) {
+        super(name, weapon, health);
+        this.name = name;
+        this.weapon = weapon;
+        this.health = health;
+        this.isAlive = isAlive;
     }
 
     //setter
