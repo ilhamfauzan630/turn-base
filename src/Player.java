@@ -1,7 +1,9 @@
 public class Player extends Charakter{
-    String name, weapon;
-    int health, attack;
-    //create constructor
+    private String name, weapon;
+    private int health, attack;
+    private Boolean isEnemy;
+
+    //constructor
     public Player(String name, String weapon, int health) {
         super(name, weapon, health);
         this.name = name;
@@ -9,28 +11,51 @@ public class Player extends Charakter{
         this.health = health;
     }
 
-    //create setter
+    //setter
     public void setAttack(int attack) {
         this.attack = attack;
     }
 
-    //create getter
+    //getter
     public int getAttack() {
         return attack;
     }
 
+    //setter isEnemy
+    public Boolean setEnemy(Boolean isEnemy) {
+        return this.isEnemy = isEnemy;
+    }
+
+    public int attack() {
+        if(isEnemy != true){
+            this.attack = this.attack + 15;
+        }
+        return this.attack;
+    }
+
     //print info charakter
     public void info() {
-        System.out.println("\t\t" + name);
+        System.out.println("\t\tPlayer");
+        System.out.println("\t\t  V");
+        System.out.println("\t\t _");
+        System.out.println("\t\t -");
+        System.out.println("\t\t/|| \\");
+        System.out.println("\t\t _");
+
+        System.out.println("\t\t/  \\");
+        System.out.println("\t\t|  |");
+
+        System.out.println("\t\t" + this.name);
         System.out.print("\t\thealth : ");
         //create do while to pringt hp []
         int i = 0;
         do {
             System.out.print("[]");
             i++;
-        } while (i < health / 10);
+        } while (i < this.health / 10);
 
         System.out.println();
-        System.out.println("\t\tyour attack is " + attack);
+        System.out.println("\t\tplayer role : " + this.weapon + "man");
+        System.out.println("\t\tyour power : " + attack());
     }
 }

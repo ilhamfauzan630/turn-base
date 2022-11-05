@@ -4,6 +4,8 @@ public class App {
         String name, weapon;
         int health = 100; 
         int attack = 40;
+        Boolean isAlive = true;
+        Boolean isEnemy = true;
 
         Scanner input = new Scanner(System.in);
 
@@ -38,10 +40,21 @@ public class App {
         //clearscreen
         System.out.print("\033[H\033[2J");
         System.out.flush();
-
-        System.out.println("Loading game");
-        for (int i = 0; i < 5; i++) {
+        
+        
+        Charakter charakter = new Charakter(name, weapon, health);
+        System.out.println("info :");
+        charakter.info();
+        
+        System.out.println("\nLoading game");
+        for (int i = 0; i < 6; i++) {
             System.out.print(".");
+            if(i == 5){
+                //clearscreen
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+                System.out.println("battle start!!");
+            }
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -49,6 +62,7 @@ public class App {
             }
         }
 
+        //instance player and enemy
         Player player = new Player(name, weapon, health);
         Enemy enemy = new Enemy("Enemy", "Gun", 500);
 
@@ -57,13 +71,16 @@ public class App {
         System.out.flush();
 
         
-
+        //set attack
         enemy.setAttack(attack);
+        enemy.setEnemy(isEnemy);
         enemy.info();
 
         System.out.println("\n\n\n");
 
+        //set attack
         player.setAttack(attack);
+        player.setEnemy(isEnemy);
         player.info();
         
 
