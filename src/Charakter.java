@@ -1,9 +1,10 @@
-public class Charakter {
+public class Charakter extends Arena {
     protected String name, weapon;
     protected int health;
 
     //constructor
     public Charakter(String name, String weapon, int health) {
+        super(name, weapon, health);
         this.name = name;
         this.weapon = weapon;
         this.health = health;
