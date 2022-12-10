@@ -11,8 +11,7 @@ abstract class Arena {
     
     public abstract void info();
 
-    
-    public void attack() {
-        System.out.println("attack");
+    public int attack() {
+        return 0;
     }
 }
