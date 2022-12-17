@@ -1,17 +1,11 @@
-abstract class Arena {
-    protected String name, weapon;
-    protected int health;
-    
-    public Arena(String name, String weapon, int health) {
-        this.name = name;
-        this.weapon = weapon;
-        this.health = health;
-    }
-
-    
+abstract class Arena implements Skill{
     public abstract void info();
 
     public int attack() {
+        return 0;
+    }
+
+    public int useSkill() {
         return 0;
     }
 }

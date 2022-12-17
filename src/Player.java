@@ -45,6 +45,14 @@ public class Player extends Charakter{
         return this.attack = this.attack + 10;
     }
 
+    //skill
+    public int useSkill() {
+        if (this.isEnemy != true) {
+            return this.attack = this.attack + 10;
+        }
+        return this.attack = this.attack + 20;
+    }
+
     //print info charakter
     public final void info() {
         System.out.println("\t\tPlayer");

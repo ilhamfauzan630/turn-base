@@ -4,7 +4,6 @@ public class Charakter extends Arena {
 
     //constructor
     public Charakter(String name, String weapon, int health) {
-        super(name, weapon, health);
         this.name = name;
         this.weapon = weapon;
         this.health = health;
