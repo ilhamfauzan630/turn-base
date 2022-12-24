@@ -67,7 +67,7 @@ public class Player extends Charakter{
 
         System.out.println("\t\t" + this.name);
         System.out.print("\t\thealth : ");
-        //create do while to pringt hp []
+        
         int i = 0;
         do {
             if(this.health < 10) {

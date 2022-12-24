@@ -1,0 +1,3 @@
+Battle Log
+ilham vs enemy
+Player Info stat : weapon : Gun attack : 55 health : 100
