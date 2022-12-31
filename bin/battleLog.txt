@@ -1,3 +1,8 @@
+
 Battle Log
-ilham vs enemy
-Player Info stat : weapon : Gun attack : 55 health : 100
+kisut vs Kraken
+Player Info stat :
+
+ weapon : Knife
+ attack : 45
+ health : 100

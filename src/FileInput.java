@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileWriter;
 
 public class FileInput {
@@ -17,12 +16,12 @@ public class FileInput {
         try {
             FileWriter myWriter = new FileWriter("battleLog.txt");
 
-            myWriter.write("Battle Log\n");
+            myWriter.write("\nBattle Log\n");
             myWriter.write(player + " vs " + enemy);
-            myWriter.write("\nPlayer Info stat :");
-            myWriter.write(" weapon : " + weapon);
-            myWriter.write(" attack : " + attack);
-            myWriter.write(" health : " + health);
+            myWriter.write("\nPlayer Info stat :\n");
+            myWriter.write("\n weapon : " + weapon);
+            myWriter.write("\n attack : " + attack);
+            myWriter.write("\n health : " + health);
             myWriter.close();
 
         } catch (Exception e) {
